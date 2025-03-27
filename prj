@@ -1,0 +1,9 @@
+#!/bin/sh
+
+PROJECT_NAME="`cat $HOME/.tmux_projects | fzf`"
+
+tmux attach-session -t "$PROJECT_NAME"
+
+if test $? -ne 0; then
+    tmux new-session -c "$PROJECT_NAME" -s "$PROJECT_NAME"
+fi

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+test "$WALLDIR" = "" && export WALLDIR=${HOME}/Pictures
+feh --bg-fill `ls ${WALLDIR}/*.png ${WALLDIR}/*.jpg | dmenu -l 5 -p "Filename:"`

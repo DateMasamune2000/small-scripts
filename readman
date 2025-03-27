@@ -1,0 +1,4 @@
+#!/bin/sh
+
+MANPAGE="`apropos . | dmenu -l 5 -p 'man:' | cut -d' ' -f1,2 | sed 's/[()]//g'`"
+man -Tpdf `echo $MANPAGE | cut -d ' ' -f2` `echo $MANPAGE | cut -d ' ' -f1` | zathura -

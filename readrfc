@@ -1,0 +1,4 @@
+#!/bin/sh
+
+RFC_NUM=`gunzip -c /usr/share/doc/RFC/rfc-index.txt.gz | grep '^[0-9][0-9][0-9][0-9] ' | dmenu -l 20 | cut -d' ' -f1 | sed 's/0*\([^0][0-9]*\)/\1/'`
+gunzip -c "`find /usr/share/doc/RFC -name rfc${RFC_NUM}.html.gz | dmenu -l 5`" | pandoc -f html -t pdf | zathura -

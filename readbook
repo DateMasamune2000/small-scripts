@@ -1,0 +1,14 @@
+#!/bin/sh
+
+BOOKSDIR="$HOME/Documents/books"
+
+echo $PWD | grep books
+if test $? -ne 0; then cd "$BOOKSDIR"; fi
+sel="`ls | dmenu -l 5`"
+if test -f "$sel"; then
+    exec zathura "$sel"
+fi
+if test -d "$sel"; then
+    cd "$sel"
+    exec $0
+fi
