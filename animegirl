@@ -1,0 +1,7 @@
+#!/bin/sh
+
+ANIMEGIRL_DIR="$HOME/archive/src/Anime-Girls-Holding-Programming-Books"
+
+cd "`find $ANIMEGIRL_DIR -type d | dmenu -p 'language:' -l 5`"
+
+feh "`ls | dmenu -l 5`"
